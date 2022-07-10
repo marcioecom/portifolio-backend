@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Jobs {
+model Job {
   id          String   @id @default(uuid())
   title       String
   description String
@@ -22,4 +22,14 @@ model Jobs {
   updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
 
   @@map("jobs")
+}
+
+model Url {
+  id          String   @id @default(uuid())
+  redirectUrl String
+  shortUrl    String
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
+
+  @@map("urls")
 }
