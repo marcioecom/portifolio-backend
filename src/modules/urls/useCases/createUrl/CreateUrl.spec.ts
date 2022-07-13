@@ -24,8 +24,7 @@ describe('Create Url test', () => {
     });
 
     it('should be able to create random url', async() => {
-      const spy = jest.spyOn(utils, 'randomUrl')
-        .mockReturnValue('19NvLEANPj');
+      const spy = jest.spyOn(utils, 'randomUrl');
 
       const url = await sut.execute({
         redirectUrl: 'https://google.com'
@@ -34,7 +33,6 @@ describe('Create Url test', () => {
       expect(url).toBeTruthy();
       expect(url).toHaveProperty('redirectUrl');
       expect(url).toHaveProperty('shortUrl');
-      expect(url.shortUrl).toBe('19NvLEANPj');
       expect(spy).toHaveBeenCalled();
     });
   });
