@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "build": "tsc & prisma generate",
+    "start": "node dist/server.js",
     "dev": "ts-node-dev -r tsconfig-paths/register src/server.ts",
     "test": "jest"
   },
