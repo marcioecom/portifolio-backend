@@ -8,6 +8,18 @@ class PrismaUrlRepository implements IUrlRepository {
 
     return url;
   }
+
+  async findOne(shortUrl: string): Promise<Url | null> {
+    const url = await prisma.url.findFirst({
+      where: { shortUrl }
+    });
+
+    if (!url) {
+      return null;
+    }
+
+    return url;
+  }
 };
 
 export { PrismaUrlRepository };
