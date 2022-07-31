@@ -27,7 +27,8 @@ model Job {
 model Url {
   id          String   @id @default(uuid())
   redirectUrl String
-  shortUrl    String
+  shortUrl    String   @unique
+  clicks      Int      @default(0)
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
 
