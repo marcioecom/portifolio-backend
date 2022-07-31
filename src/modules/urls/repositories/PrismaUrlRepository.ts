@@ -1,5 +1,5 @@
 import { prisma } from '@database/client';
-import { Url } from '@prisma/client';
+import { Prisma, Url } from '@prisma/client';
 import { IUrlRepository } from './IUrlRepository';
 
 class PrismaUrlRepository implements IUrlRepository {
@@ -19,6 +19,13 @@ class PrismaUrlRepository implements IUrlRepository {
     }
 
     return url;
+  }
+
+  async update(id: string, data: Prisma.UrlUpdateInput) {
+    await prisma.url.update({
+      where: { id },
+      data
+    });
   }
 };
 

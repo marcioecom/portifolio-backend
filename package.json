@@ -7,7 +7,7 @@
     "build": "tsc ; prisma generate",
     "postbuild": "ef-tspm",
     "start": "node dist/server.js",
-    "dev": "ts-node-dev -r tsconfig-paths/register src/server.ts",
+    "dev": "tsnd --respawn --transpile-only --ignore-watch node_modules --exit-child --clear -r tsconfig-paths/register src/server.ts",
     "test": "jest"
   },
   "dependencies": {

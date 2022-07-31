@@ -10,6 +10,10 @@ class GetUrl {
       return { error: 'Url not found' };
     }
 
+    await this.urlRepository.update(url.id, {
+      clicks: { increment: 1 }
+    });
+
     return url;
   }
 }
