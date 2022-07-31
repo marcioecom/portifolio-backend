@@ -6,9 +6,10 @@ class GetUrlController {
 
   async handle(req: Request, res: Response) {
     const { id: shortUrl } = req.params;
-    console.log(shortUrl);
+    const { info: infoQuery } = req.query;
+
     try {
-      const url = await this.getUrl.execute(shortUrl);
+      const url = await this.getUrl.execute(shortUrl, Boolean(infoQuery));
 
       if ('error' in url) {
         return res.status(404).json({ message: url.error });
