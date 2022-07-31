@@ -5,4 +5,4 @@
   - [ ] Setup puppeteer
   - [ ] crawler website
   - [ ] save on database
-- [ ] URL Shortener
+- [x] URL Shortener
